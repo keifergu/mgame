@@ -2,10 +2,11 @@
 //
 
 #include "stdafx.h"
-
+#include"App.h"
 
 int main()
 {
+	new App();
     return 0;
 }
 

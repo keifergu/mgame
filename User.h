@@ -1,6 +1,7 @@
 #pragma once
 #include<vector>
 #include<string>
+#include<map>
 
 using namespace std;
 
@@ -11,13 +12,13 @@ public:
 	~User();
 
 	string getName();
-	int getHighestScore();
+	int getHighestScore(string type);
 	bool login(string passWord);
-	vector<int> getScoreList();
+	vector<int> getScoreList(string type);
 
 private:
 	string _username;
 	string _password;
-	vector<int> scoreList;
+	map<string, vector<int> > allScoreList;
 };
 

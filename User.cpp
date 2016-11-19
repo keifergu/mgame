@@ -17,13 +17,14 @@ string User::getName()
 	return string(_username);
 }
 
-int User::getHighestScore()
+int User::getHighestScore(string type)
 {
-	int length = scoreList.size();
+	vector<int> typeScore = getScoreList(type);
+	int length = typeScore.size();
 	int max = 0;
 	for (int i = 0; i < length; i++)
 	{
-		max = max > scoreList[i] ? max : scoreList[i];
+		max = max > typeScore[i] ? max : typeScore[i];
 	}
 	return max;
 }
@@ -37,9 +38,9 @@ bool User::login(string password)
 	return false;
 }
 
-vector<int> User::getScoreList()
+vector<int> User::getScoreList(string type)
 {
-	return scoreList;
+	return allScoreList[type];
 }
 
 
