@@ -15,4 +15,11 @@
 // TODO:  在此处引用程序需要的其他头文件
 #include"User.h"
 #include"UserAdmin.h"
+
+#include"Game.h"
+#include"SimpleGame.h"
+#include"MiddleGame.h"
+#include"DiffcultGame.h"
+#include"GameAdmin.h"
+
 #include"App.h"

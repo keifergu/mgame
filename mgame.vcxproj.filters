@@ -33,6 +33,18 @@
     <ClInclude Include="App.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGame.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MiddleGame.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DiffcultGame.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -48,6 +60,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="App.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGame.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MiddleGame.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DiffcultGame.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
