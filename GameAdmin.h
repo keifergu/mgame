@@ -12,9 +12,9 @@ public:
 	int getTotalPoints();
 
 private:
-	Game* game;
-	vector<string> *gameContent;
-	vector<string> *answer;
+	Game *game;
+	vector<string> gameContent;
+	vector<string> answer;
 	vector<int> points;
 };
 

@@ -15,13 +15,13 @@ void GameAdmin::setGameDegress(string degress)
 {
 	switch (degress[0])
 	{
-	case(1) :
+	case('1') :
 		game = new SimpleGame();
 		break;
-	case(2) :
+	case('2') :
 		game = new MiddleGame();
 		break;
-	case(3) :
+	case('3') :
 		game = new DiffcultGame();
 		break;
 	default:
@@ -32,15 +32,15 @@ void GameAdmin::setGameDegress(string degress)
 string GameAdmin::getContent()
 {
 	string content = game->getContent();
-	gameContent->push_back(content);
+	gameContent.push_back(content);
 	return string(content);
 }
 
 bool GameAdmin::checkAnswer(string userAnswer)
 {
-	answer->push_back(userAnswer);
-	if (gameContent->back() == userAnswer) {
-		points.push_back(game->getScore);
+	answer.push_back(userAnswer);
+	if (gameContent.back() == userAnswer) {
+		points.push_back(game->getScore());
 		return true;
 	}
 	else {

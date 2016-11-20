@@ -15,8 +15,10 @@ SimpleGame::~SimpleGame()
 string SimpleGame::getContent()
 {
 	std::random_device rd;
+	char *num = "0123456789";
 	string content;
-	for (int n = 0; n < getStringLength(); ++n)
-		content[n] = rd() % 10;
+	for (int n = 0; n < getStringLength(); ++n) {
+		content.push_back(num[rd() % 10]);
+	}
 	return string(content);
 }
