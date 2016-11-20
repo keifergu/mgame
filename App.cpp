@@ -147,16 +147,16 @@ void App::viewGamePlay(string degress)
 	cin;
 	string userAnswer;
 	gameAdmin->setGameDegress(degress);
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 3; i++)
 	{
-		cout << "------记忆小游戏------" << endl;
+		cout << "------记忆小游戏------(分数：" << gameAdmin->getTotalPoints() << "分)" << endl;
 		cout << "请记住这个字符串:" << endl;
 		cout << gameAdmin->getContent() << endl;
 		cout << "倒计时：";
 		countdown(3);
 		system("cls");
 		cout << "------记忆小游戏------" << endl;
-		cout << "请输入您刚刚看到的内容";
+		cout << "请输入您刚刚看到的内容：" << endl;
 		cin >> userAnswer;
 		if (gameAdmin->checkAnswer(userAnswer)) {
 			cout << "答案正确" << endl;
@@ -168,5 +168,21 @@ void App::viewGamePlay(string degress)
 		Sleep(800);
 		system("cls");
 	}
+	viewGameEnd(degress);
+}
+
+void App::viewGameEnd(string degress)
+{
+	// 储存得分
+	
+	cout << "------记忆小游戏------" << endl;
+	cout << "游戏结束，你最后得分为：" << endl;
+	cout << gameAdmin->getTotalPoints() << "分" << endl;
+	cout << "\n1.再试一次\n2.返回主菜单\n请选择：";
+	char i = '0';
+	cin >> i;
+	if (i == '1') viewGamePlay(degress);
+	else if (i == '2') viewUserMenu();
+	else viewUserMenu();
 }
 

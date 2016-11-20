@@ -10,9 +10,12 @@ public:
 	string getContent();
 	bool checkAnswer(string userAnswer);
 	int getTotalPoints();
+	vector<string> getGameInfo();
+	void reset();
 
 private:
 	Game *game;
+	string degress;
 	vector<string> gameContent;
 	vector<string> answer;
 	vector<int> points;

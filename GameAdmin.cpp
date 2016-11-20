@@ -11,9 +11,10 @@ GameAdmin::~GameAdmin()
 {
 }
 
-void GameAdmin::setGameDegress(string degress)
+void GameAdmin::setGameDegress(string tdegress)
 {
-	switch (degress[0])
+	degress = tdegress[0];
+	switch (tdegress[0])
 	{
 	case('1') :
 		game = new SimpleGame();
@@ -25,6 +26,7 @@ void GameAdmin::setGameDegress(string degress)
 		game = new DiffcultGame();
 		break;
 	default:
+		degress = "0";
 		break;
 	}
 }
@@ -57,4 +59,23 @@ int GameAdmin::getTotalPoints()
 		total += points[i];
 	}
 	return 0;
+}
+
+vector<string> GameAdmin::getGameInfo()
+{
+	int points = getTotalPoints();
+	char buf[10];
+	sprintf(buf, "%d", points);
+	string point = buf;
+	vector<string> info{ degress, point};
+	return vector<string>({ degress, point });
+}
+
+void GameAdmin::reset()
+{
+	delete game;
+	degress = "0";
+	gameContent.clear();
+	answer.clear();
+	points.clear();
 }

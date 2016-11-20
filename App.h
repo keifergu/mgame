@@ -21,6 +21,8 @@ public:
 	void viewGameAdmin();
 	void viewGamePlay(string degree);
 
+	void viewGameEnd(string degress);
+
 	void countdown(int time);
 private:
 	UserAdmin* userAdmin;
