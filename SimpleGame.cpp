@@ -4,6 +4,7 @@
 
 SimpleGame::SimpleGame()
 {
+	setScore(1);
 	setStringLength(4);
 }
 

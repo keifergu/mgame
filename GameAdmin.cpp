@@ -58,14 +58,14 @@ int GameAdmin::getTotalPoints()
 	{
 		total += points[i];
 	}
-	return 0;
+	return total;
 }
 
 vector<string> GameAdmin::getGameInfo()
 {
 	int points = getTotalPoints();
 	char buf[10];
-	sprintf(buf, "%d", points);
+	//sprintf(buf, "%d", points);
 	string point = buf;
 	vector<string> info{ degress, point};
 	return vector<string>({ degress, point });
