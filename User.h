@@ -14,11 +14,10 @@ public:
 	string getName();
 	int getHighestScore(string type);
 	bool login(string passWord);
-	vector<int> getScoreList(string type);
+
 
 private:
 	string _username;
 	string _password;
-	map<string, vector<int> > allScoreList;
 };
 

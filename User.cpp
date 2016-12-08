@@ -38,9 +38,5 @@ bool User::login(string password)
 	return false;
 }
 
-vector<int> User::getScoreList(string type)
-{
-	return allScoreList[type];
-}
 
 
