@@ -23,23 +23,29 @@ bool UserAdmin::login(string username, string password)
 	for (int i = 0; i < length; i++)
 	{
 		if (username == userList[i]->getName()) {
-			return userList[i]->login(password);
+			if (userList[i]->login(password)) {
+				userId = i;
+				return true;
+			}
 		}
 	}
 	return false;
 }
 
-bool UserAdmin::checkNewRecorder(int type, int score, string name)
+bool UserAdmin::checkNewRecorder(int type, int score)
 {
 	bool result;
 	switch (type)
 	{
-	case 0:
-		result = check(simpleScore, score, name);
 	case 1:
-		result = check(middleScore, score, name);
+		result = check(simpleScore, score);
+		break;
 	case 2:
-		result = check(diffculeScore, score, name);
+		result = check(middleScore, score);
+		break;
+	case 3:
+		result = check(diffculeScore, score);
+		break;
 	default:
 		result = false;
 		break;
@@ -57,13 +63,14 @@ vector<int> UserAdmin::getScoreList(int type)
 {
 	switch (type)
 	{
-	case 0:
-		return simpleScore;
 	case 1:
-		return middleScore;
+		return simpleScore;
 	case 2:
+		return middleScore;
+	case 3:
 		return diffculeScore;
 	default:
+		return simpleScore;
 		break;
 	}
 }
@@ -72,20 +79,21 @@ vector<string> UserAdmin::getNameList(int type)
 {
 	switch (type)
 	{
-	case 0:
-		return simpleName;
 	case 1:
-		return middleName;
+		return simpleName;
 	case 2:
+		return middleName;
+	case 3:
 		return diffculeName;
 	default:
 		break;
 	}
 }
 
-bool UserAdmin::check(vector<int> scoreList, int score, string name)
+bool UserAdmin::check(vector<int> &scoreList, int score)
 {
-	int length = scoreList.size;
+	if (score == 0) return false;
+	int length = scoreList.size();
 	if (length < scoreListMaxLength)
 	{
 		scoreList.push_back(score);

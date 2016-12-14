@@ -17,7 +17,7 @@ string User::getName()
 	return string(_username);
 }
 
-int User::getHighestScore(string type)
+/*int User::getHighestScore(string type)
 {
 	vector<int> typeScore = getScoreList(type);
 	int length = typeScore.size();
@@ -27,7 +27,7 @@ int User::getHighestScore(string type)
 		max = max > typeScore[i] ? max : typeScore[i];
 	}
 	return max;
-}
+}*/
 
 bool User::login(string password)
 {

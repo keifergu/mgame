@@ -12,7 +12,7 @@ public:
 	~User();
 
 	string getName();
-	int getHighestScore(string type);
+	//int getHighestScore(string type);
 	bool login(string passWord);
 
 

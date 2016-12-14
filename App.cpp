@@ -78,6 +78,7 @@ void App::viewUserMenu()
 	cout << "-----欢迎来到记忆游戏-----" << endl;
 	cout << "1.开始游戏" << endl;
 	cout << "2.分数排名" << endl;
+	cout << "3.退出游戏" << endl;
 	cout << "请选择:";
 	cin >> choose;
 	if (choose == '1') viewGameAdmin();
@@ -107,6 +108,19 @@ void App::viewRankAdmin()
 
 void App::viewRankList(string type)
 {
+	system("cls");
+	vector<int> scoreList;
+	scoreList = userAdmin->getScoreList(atoi(type.c_str()));
+	cout << "分数排行耪：" << endl;
+	for (int i = 0; i < scoreList.size(); i++)
+	{
+		cout << "第" << i + 1 << "名：" << scoreList[i] << endl;
+	}
+	cout << "\n1.查看其他排名\n2.返回主菜单\n请选择：";
+	char i = '0';
+	cin >> i;
+	if (i == '1') viewRankAdmin();
+	else if (i == '2') viewUserMenu();
 }
 
 void App::viewGameAdmin()
@@ -142,18 +156,20 @@ void App::countdown(int time) {
 void App::viewGamePlay(string degress)
 {
 	system("cls");
+	char tmp;
 	cout << "游戏马上开始，您有5秒钟的时间去记忆屏幕上出现的字符串，然后写下它" << endl;
-	cout << "------按任意键开始游戏------" << endl;
-	cin;
+	cout << "------输入任意字符开始游戏------" << endl;
+	cin >> tmp;
+	system("cls");
 	string userAnswer;
 	gameAdmin->setGameDegress(degress);
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 1; i++)
 	{
 		cout << "------记忆小游戏------(分数：" << gameAdmin->getTotalPoints() << "分)" << endl;
 		cout << "请记住这个字符串:" << endl;
 		cout << gameAdmin->getContent() << endl;
 		cout << "倒计时：";
-		countdown(3);
+		countdown(2);
 		system("cls");
 		cout << "------记忆小游戏------" << endl;
 		cout << "请输入您刚刚看到的内容：" << endl;
@@ -174,11 +190,16 @@ void App::viewGamePlay(string degress)
 void App::viewGameEnd(string degress)
 {
 	// 储存得分
-	
-	cout << "------记忆小游戏------" << endl;
-	cout << "游戏结束，你最后得分为：" << endl;
-	cout << gameAdmin->getTotalPoints() << "分" << endl;
+	int score = gameAdmin->getTotalPoints();
+	bool res = userAdmin->checkNewRecorder(atoi(degress.c_str()), score);
+	cout << "------记忆小游戏------\n游戏结束," << endl;
+	if (res)
+	{
+		cout << "恭喜你，获得了新纪录！" << endl;
+	}
+	cout << "你最后得分为：" << score << "分" << endl;
 	cout << "\n1.再试一次\n2.返回主菜单\n请选择：";
+	gameAdmin->reset();
 	char i = '0';
 	cin >> i;
 	if (i == '1') viewGamePlay(degress);
